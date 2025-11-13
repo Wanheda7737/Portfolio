@@ -5,13 +5,14 @@ NOT ALLOWED TO SELL , SHARE , COPY&Pasting it In Public Unless Mention the Autho
 
 ## 🚫 License & Contribution Policy
 
-This project is strictly private and **cannot be contributed to, forked, or republished by anyone** without explicit permission from the owner.
+🔒 This project is proprietary. You may not redistribute, sell, or use it commercially without permission. See LICENSE.txt for details.
+
 
 ### Key Points:
 
 - **No contributions allowed** – Pull requests will not be accepted.  
 - **No redistribution** – You may not publish, sell, or distribute this code.  
-- **All rights reserved** – The project is released under the APL-8 license (see LICENSE file).
+- **All rights reserved** – The project is released under the APL-8 license
 
 ## 📦 Installation
 
@@ -22,4 +23,5 @@ Instructions to install or run the project locally.
 git clone https://github.com/Wanheda7737/Portfolio.git
 
 cd Portfolio
+
 
