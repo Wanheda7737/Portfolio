@@ -1,6 +1,7 @@
 # Portfolio-io13
 
-> Short description of your project
+> The Project Language is FARS , Because this was a real project someone asked me to do and Now i decided to Share it for Public , you guys can download , use , modify for your private coding time but 
+NOT ALLOWED TO SELL , SHARE , COPY&Pasting it In Public Unless Mention the Author or Ask For Permission.
 
 ## 🚫 License & Contribution Policy
 
@@ -18,5 +19,6 @@ Instructions to install or run the project locally.
 
 ```bash
 # Example
-git clone https://github.com/Wanheda7737/Portfolio-io13.git
-cd Portfolio-io13
+git clone https://github.com/Wanheda7737/Portfolio.git
+
+cd Portfolio
