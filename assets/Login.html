@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Hani Kheyrkhah" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="\assets\Login.css" />
+    <meta property="og:url" content="https://portfolio-io13.vercel.app">
+    <title>ساخت حساب کاربری</title>
+    <link rel="icon" href="/Images/favicon-32x32.png" type="image/x-icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/vazirmatn@latest/Vazirmatn.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container" id="container">
+      <div class="form-container sign-up">
+        <form onsubmit="return validatePasswords()">
+          <h1>ساخت اکانت</h1>
+          <div class="social-icons">
+            <a href="#" class="icon"
+              ><i class="fa-brands fa-google-plus-g"></i
+            ></a>
+            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="icon"
+              ><i class="fa-brands fa-linkedin-in"></i
+            ></a>
+          </div>
+          <span style="font-weight: 600; font-size: 18px"
+            >یا از ایمیل خود برای ثبت‌نام استفاده کنید</span
+          >
+          <input
+            dir="rtl"
+            id="username"
+            name="username"
+            type="text"
+            pattern="^[^@]+$"
+            placeholder="نام کاربری"
+            autocomplete="username"
+            pattern="^(?=.*[a-zA-Z])[a-zA-Z0-9_]{3,}$"
+            title="نام کاربری باید شامل حداقل یک حرف باشد و فقط از حروف، اعداد و زیرخط (_) تشکیل شود"
+            title="نام کاربری نباید شامل @ باشد"
+            required
+          />
+          <input
+            dir="rtl"
+            id="email"
+            type="email"
+            name="email"
+            placeholder="ایمیل"
+            pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com|hotmail\.com)$"
+            title="لطفاً یک ایمیل معتبر وارد کنید (مانند gmail.com یا yahoo.com)"
+            required
+          />
+          <input
+            dir="rtl"
+            onclick="togglePassword('password', this)"
+            id="password"
+            type="password"
+            placeholder="رمز عبور"
+            minlength="6"
+            maxlength="20"
+            pattern="^(?=.*[A-Z])?=.*[!@#$%^&*(),.?\"
+            title="باید حداقل یک حرف بزرگ و یک کاراکتر ویژه داشته باشد"
+            required
+          />
+          <input
+            dir="rtl"
+            onclick="togglePassword('confirmPassword', this)"
+            id="confirmPassword"
+            type="Password"
+            placeholder="تکرار رمز عبور"
+            required
+          />
+          <button class="btn" type="submit">ثبت‌نام</button>
+          <p id="error"></p>
+          <p id="success"></p>
+        </form>
+      </div>
+      <div class="form-container sign-in">
+        <form>
+          <h1>ورود</h1>
+          <div class="social-icons">
+            <a href="#" class="icon"
+              ><i class="fa-brands fa-google-plus-g"></i
+            ></a>
+            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="icon"
+              ><i class="fa-brands fa-linkedin-in"></i
+            ></a>
+          </div>
+          <span>یا از ایمیل و رمز عبور خود استفاده کنید</span>
+          <input
+            dir="rtl"
+            name="email"
+            title="لطفاً یک ایمیل معتبر وارد کنید (مانند gmail.com یا yahoo.com)"
+            pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com|hotmail\.com)$"
+            type="email"
+            placeholder="ایمیل"
+            required
+          />
+          <input dir="rtl" type="password" placeholder="رمز عبور" required />
+          <a href="#" style="color: white">رمز عبور خود را فراموش کرده‌اید؟</a>
+          <button type="post" class="btn1">ورود</button>
+        </form>
+      </div>
+      <div class="toggle-container">
+        <div class="toggle">
+          <div class="toggle-panel toggle-left">
+            <h1>خوش آمدید!</h1>
+            <p>
+              جزئیات شخصی خود را وارد کنید تا از تمام امکانات سایت استفاده کنید
+            </p>
+            <button class="hidden1" id="login">ورود</button>
+          </div>
+          <div class="toggle-panel toggle-right">
+            <h1>سلام دوست من!</h1>
+            <p>
+              با جزئیات شخصی خود ثبت‌نام کنید تا از تمامی امکانات سایت استفاده
+              کنید
+            </p>
+            <button class="hidden2" id="register">ثبت‌نام</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="login.js" defer></script>
+    <script>
+      const allowedDomains = [
+        "gmail.com",
+        "yahoo.com",
+        "outlook.com",
+        "hotmail.com",
+      ];
+      const emailInput = document.querySelector("[name=email]");
+
+      emailInput.addEventListener("input", function () {
+        const domain = this.value.split("@")[1];
+        if (domain && !allowedDomains.includes(domain.toLowerCase())) {
+          this.setCustomValidity("لطفاً از دامنه‌های معتبر استفاده کنید");
+        } else {
+          this.setCustomValidity("");
+        }
+      });
+      function validatePasswords() {
+        const password = document.getElementById("password").value;
+        const confirmPassword =
+          document.getElementById("confirmPassword").value;
+        const regex = /^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>]).+$/;
+        const error = document.getElementById("error");
+        const success = document.getElementById("success");
+
+        error.textContent = "";
+        success.textContent = "";
+
+        // Check pattern
+        if (!regex.test(password)) {
+          error.textContent =
+            "⚠️ رمز عبور باید حداقل شامل یک حرف بزرگ و یک کاراکتر ویژه باشد.";
+          return false;
+        }
+
+        // Check match
+        if (password !== confirmPassword) {
+          error.textContent = "⚠️ رمزهای عبور مطابقت ندارند!";
+          return false;
+        }
+
+        // All good
+        success.textContent = "✅ رمزهای عبور مطابقت دارند!";
+        return true;
+      }
+      document.addEventListener("mousemove", (e) => {
+        const x = (e.clientX / window.innerWidth) * 100;
+        const y = (e.clientY / window.innerHeight) * 100;
+        document.body.style.setProperty("--x", `${x}%`);
+        document.body.style.setProperty("--y", `${y}%`);
+      });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const signInForm = document.querySelector(".sign-in");
+  const signUpForm = document.querySelector(".sign-up");
+  const container = document.querySelector(".container");
+
+  if (window.innerWidth <= 768) {
+    // Remove any existing toggle to avoid duplicates
+    const existingToggle = document.querySelector(".mobile-toggle");
+    if (existingToggle) existingToggle.remove();
+
+    // Create toggle buttons
+    const mobileToggle = document.createElement("div");
+    mobileToggle.classList.add("mobile-toggle");
+    mobileToggle.innerHTML = `
+      <button id="showSignIn" class="active">ورود</button>
+      <button id="showSignUp">ثبت‌نام</button>
+    `;
+    container.prepend(mobileToggle);
+
+    const showSignIn = document.getElementById("showSignIn");
+    const showSignUp = document.getElementById("showSignUp");
+
+    // Initial state
+    signInForm.classList.add("active");
+    signUpForm.classList.remove("active");
+
+    const switchForm = (show, hide, activeBtn, inactiveBtn) => {
+      hide.classList.remove("active");
+      show.classList.add("active");
+      activeBtn.classList.add("active");
+      inactiveBtn.classList.remove("active");
+    };
+
+    showSignIn.addEventListener("click", () => {
+      switchForm(signInForm, signUpForm, showSignIn, showSignUp);
+    });
+
+    showSignUp.addEventListener("click", () => {
+      switchForm(signUpForm, signInForm, showSignUp, showSignIn);
+    });
+  }
+});
+
+    </script>
+  </body>
+</html>

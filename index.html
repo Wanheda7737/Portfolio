@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Hani Kheyrkhah">
+    <title>پورتفولیو — نام شما</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta property="og:url" content="https://portfolio-io13.vercel.app">
+    <link
+      href="https://cdn.jsdelivr.net/npm/vazirmatn@latest/Vazirmatn.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/Images/favicon-32x32.png" type="image/x-icon" />
+  </head>
+  <body>
+    <header id="site-header" class="header">
+      <div class="container header-inner">
+        <!-- Custom Logo -->
+        <a class="logo" href="#home">نام و نام خانوادگی</a>
+
+        <!-- Nav -->
+        <nav id="main-nav" class="nav" aria-label="ناوبری اصلی">
+          <ul>
+            <li><a href="#home">خانه</a></li>
+            <li><a href="#about">درباره</a></li>
+            <li><a href="#skills">مهارت‌ها</a></li>
+            <li><a href="#projects">نمونه‌کارها</a></li>
+            <li><a href="#contact">تماس</a></li>
+          </ul>
+        </nav>
+
+        <!-- CTRL -->
+        <div class="controls" role="group" aria-label="کنترل‌های رابط">
+          <button
+            id="theme-toggle"
+            class="theme-btn"
+            aria-label="تغییر تم"
+            title="تغییر حالت روشن/تاریک"
+          >
+            🌙
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="container hero-grid reveal">
+          <div class="hero-photo">
+            <img
+              src="https://placehold.co/600x400/374151/ffffff?text=Profile+Picture"
+              alt="عکس پروفایل"
+            />
+          </div>
+          <div class="hero-info">
+            <h1><strong>نام و نام خانوادگی</strong></h1>
+            <p class="lead">
+              طراح و توسعه‌دهنده فرانت‌اند — ساخت تجربه‌های وب زیبا، قابل دسترس
+              و پر تعامل
+            </p>
+            <p>مسلط به زبان های HTML,CSS,JS و طراح رابط های کاربری</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section about reveal">
+        <div class="container">
+          <h2>درباره من</h2>
+          <p>
+            من یک توسعه‌دهنده فرانت‌اند هستم که تمرکز اصلی‌ام بر دسترس‌پذیری و
+            جذابیت بصری در طراحی رابط کاربری است. با تسلط حرفه‌ای بر HTML و CSS
+            و مهارت بالا در JavaScript، می‌توانم رابط‌هایی بسازم که هم زیبا و
+            مدرن باشند و هم برای همه کاربران قابل استفاده. تجربه‌ام در طراحی
+            برای زبان‌های راست‌به‌چپ (RTL) در سطح متوسط است، اما همیشه تلاش
+            می‌کنم پروژه‌هایم را با نیازهای کاربران فارسی‌زبان هماهنگ کنم. در
+            کارهایم از انیمیشن‌ها و تعاملات پویا استفاده می‌کنم تا تجربه کاربری
+            جذاب‌تر و زنده‌تر شود. بهینه‌سازی عملکرد و سرعت بارگذاری صفحات برایم
+            اهمیت زیادی دارد، چون باور دارم تکنولوژی باید در خدمت کاربر باشد.
+            الهام اصلی من از نیازهای واقعی کاربران و پیشرفت‌های روز دنیای
+            تکنولوژی می‌آید. همچنین تا حدی علاقه‌مند به آموزش و اشتراک‌گذاری
+            دانش هستم و تلاش می‌کنم تجربه‌هایم را با دیگران به اشتراک بگذارم.
+          </p>
+        </div>
+      </section>
+
+      <section id="skills" class="section skills reveal">
+        <div class="container">
+          <h2>مهارت‌ها</h2>
+          <div class="skills-grid">
+            <!-- Skill -->
+            <div class="skill">
+              <div
+                class="skill-ring"
+                data-value="95"
+                data-idx="1"
+                aria-hidden="true"
+              >
+                <svg viewBox="0 0 120 120" class="ring-svg">
+                  <defs>
+                    <linearGradient id="g-1" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="var(--accent)" />
+                      <stop offset="100%" stop-color="var(--accent-2)" />
+                    </linearGradient>
+                  </defs>
+                  <circle class="ring-bg" cx="60" cy="60" r="50" />
+                  <circle
+                    class="ring-fg"
+                    cx="60"
+                    cy="60"
+                    r="50"
+                    stroke="url(#g-1)"
+                  />
+                </svg>
+                <div class="skill-center">
+                  <img src="Images/html5.png" alt="HTML5" />
+                  <span class="skill-label">HTML</span>
+                </div>
+              </div>
+              <h3>HTML5</h3>
+              <p class="muted">ساختار و دسترس‌پذیری</p>
+            </div>
+
+            <div class="skill">
+              <div
+                class="skill-ring"
+                data-value="92"
+                data-idx="2"
+                aria-hidden="true"
+              >
+                <svg viewBox="0 0 120 120" class="ring-svg">
+                  <defs>
+                    <linearGradient id="g-2" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="var(--accent)" />
+                      <stop offset="100%" stop-color="var(--accent-2)" />
+                    </linearGradient>
+                  </defs>
+                  <circle class="ring-bg" cx="60" cy="60" r="50" />
+                  <circle
+                    class="ring-fg"
+                    cx="60"
+                    cy="60"
+                    r="50"
+                    stroke="url(#g-2)"
+                  />
+                </svg>
+                <div class="skill-center">
+                  <img src="Images/CSS.svg" alt="CSS3" />
+                  <span class="skill-label">CSS</span>
+                </div>
+              </div>
+              <h3>CSS</h3>
+              <p class="muted">طراحی واکنش‌گرا و انیمیشن</p>
+            </div>
+
+            <div class="skill">
+              <div
+                class="skill-ring"
+                data-value="64"
+                data-idx="3"
+                aria-hidden="true"
+              >
+                <svg viewBox="0 0 120 120" class="ring-svg">
+                  <defs>
+                    <linearGradient id="g-3" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="var(--accent)" />
+                      <stop offset="100%" stop-color="var(--accent-2)" />
+                    </linearGradient>
+                  </defs>
+                  <circle class="ring-bg" cx="60" cy="60" r="50" />
+                  <circle
+                    class="ring-fg"
+                    cx="60"
+                    cy="60"
+                    r="50"
+                    stroke="url(#g-3)"
+                  />
+                </svg>
+                <div class="skill-center">
+                  <img src="Images/js.png" alt="JavaScript" />
+                  <span class="skill-label">JS</span>
+                </div>
+              </div>
+              <h3>JavaScript</h3>
+              <p class="muted">تعامل و منطق فرانت‌اند</p>
+            </div>
+
+            <div class="skill">
+              <div
+                class="skill-ring"
+                data-value="75"
+                data-idx="5"
+                aria-hidden="true"
+              >
+                <svg viewBox="0 0 120 120" class="ring-svg">
+                  <defs>
+                    <linearGradient id="g-5" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="var(--accent)" />
+                      <stop offset="100%" stop-color="var(--accent-2)" />
+                    </linearGradient>
+                  </defs>
+                  <circle class="ring-bg" cx="60" cy="60" r="50" />
+                  <circle
+                    class="ring-fg"
+                    cx="60"
+                    cy="60"
+                    r="50"
+                    stroke="url(#g-5)"
+                  />
+                </svg>
+                <div class="skill-center">
+                  <img src="Images/access.png" alt="Accessibility" />
+                  <span class="skill-label">A11y</span>
+                </div>
+              </div>
+              <h3>دسترس‌پذیری</h3>
+              <p class="muted">بهینه‌سازی برای همه کاربران</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section projects reveal">
+        <div class="container">
+          <h2>نمونه‌کارها</h2>
+          <div class="projects-grid">
+            <article class="project-card">
+              <img src="Images/PRE1.png" alt="پروژه اول" />
+              <div class="card-body">
+                <h3>صفحه ساخت حساب کاربری</h3>
+                <p>
+                  هدف پروژه: ساخت یک پنل کاربری ساده و امن برای مدیریت محتوای
+                  پروژه‌ها و پیگیری وضعیت وظایف؛ هدف افزایش بهره‌وری تیم و ارائه
+                  رابطی قابل‌فهم برای کاربران غیرتخصصی. تکنولوژی‌های
+                  استفاده‌شده: HTML5; CSS3 (Flex/Grid, responsive); JavaScript
+                  خالص برای منطق فرم و اعتبارسنجی؛ ذخیره‌سازی محلی با
+                  localStorage (نمونه‌سازی). در نسخهٔ واقعی می‌توان بک‌اند با
+                  Node.js/Express یا هر API دلخواه اضافه کرد.
+                </p>
+                <div class="card-actions">
+                  <a href="assets/Login.html" target="_blank" rel="noopener"
+                    >نمایش</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="Images/PRE2.png" alt="پروژه دوم" />
+              <div class="card-body">
+                <h3>نمایشگاه کتابخانه کامپوننت‌ها📚</h3>
+                <p>
+                  ین کتابخانه یک ویترین کامل از مهارت‌های فرانت‌اند است که نشان
+                  می‌دهد چطور می‌توان با ترکیب HTML، CSS و JavaScript، رابط‌های
+                  کاربری مدرن، دسترس‌پذیر و چندزبانه ساخت.
+                </p>
+                <div class="card-actions">
+                  <a href="assets/index.html" target="_blank" rel="noopener"
+                    >نمایش</a
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact reveal">
+        <div class="container">
+          <h2>تماس با من</h2>
+          <p>
+            برای همکاری، پروژه یا سوالات حرفه‌ای فرم زیر را پر کنید یا مستقیماً
+            ایمیل ارسال کنید:
+          </p>
+
+          <div class="contact-grid">
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="form-row">
+                <label for="name">نام</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  aria-required="true"
+                  placeholder="نام شما"
+                />
+              </div>
+
+              <div class="form-row">
+                <label for="email">ایمیل</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  aria-required="true"
+                  placeholder="you@example.com"
+                />
+              </div>
+
+              <div class="form-row">
+                <label for="subject">موضوع</label>
+                <input
+                  id="subject"
+                  name="subject"
+                  type="text"
+                  placeholder="موضوع پیام"
+                />
+              </div>
+
+              <div class="form-row">
+                <label for="message">پیام</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="6"
+                  required
+                  aria-required="true"
+                  placeholder="پیام خود را بنویسید..."
+                ></textarea>
+              </div>
+
+              <div class="form-row actions">
+                <button type="submit" class="btn">ارسال پیام</button>
+                <button type="button" id="contact-reset" class="btn btn-ghost">
+                  پاک کردن
+                </button>
+              </div>
+
+              <div
+                id="form-feedback"
+                class="form-feedback"
+                role="status"
+                aria-live="polite"
+              ></div>
+            </form>
+
+            <aside class="contact-info">
+              <h3>اطلاعات</h3>
+              <p>
+                <strong>ایمیل:</strong>
+                <a href="mailto:you.example@gmail.com">you.example@gmail.com</a>
+              </p>
+              <p><strong>آدرس:</strong> کشور ,شهر</p>
+              <p>
+                <strong>تلفن:</strong
+                ><a href="tel:+989123456789">989123456789+</a>
+              </p>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>© <span id="year"> </span>همه حقوق محفوظ است.</p>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("contextmenu", (event) =>
+        event.preventDefault()
+      );
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

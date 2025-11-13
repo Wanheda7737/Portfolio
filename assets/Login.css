@@ -1,0 +1,459 @@
+@import url("https://cdn.jsdelivr.net/npm/vazirmatn@latest/Vazirmatn.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Vazirmatn", "Inter", sans-serif;
+}
+
+body {
+  user-select: none;
+  background: radial-gradient(circle at center, #1c1c1c, #0d0d0d);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  transition: background-position 0.2s ease;
+
+  /* Smooth glow & depth */
+  perspective: 1000px;
+  position: relative;
+}
+
+/*REGEX*/
+input {
+  user-select: none;       /* prevent text selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+input::selection {
+  background: none;        /* no highlight */
+}
+
+input {
+  pointer-events: auto;    /* still allow typing */
+}
+
+/* ✨ Optional overlay for depth */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+  filter: blur(4px) brightness(0.7);
+  z-index: -2;
+}
+
+/* 🌠 Animated glow gradient overlay */
+body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    rgba(116, 95, 56, 0.062),
+    transparent 60%
+  );
+  z-index: -1;
+  pointer-events: none;
+  transition: background 0.2s ease;
+}
+
+img {
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+.container {
+  background-color: #0f0f0f;
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgba(110, 103, 99, 0.418);
+  position: relative;
+  overflow: hidden;
+  width: 768px;
+  max-width: 100%;
+  min-height: 480px;
+}
+
+.container p {
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  margin: 20px 0;
+  color: #ffffff;
+}
+
+.container span {
+  font-size: 12px;
+  color: #f5f5f5;
+}
+
+.container a {
+  color: #000000;
+  font-size: 18px;
+  text-decoration: none;
+  margin: 15px 0 10px;
+}
+
+.container a:hover {
+  background: rgba(238, 171, 37, 0.904);
+  backdrop-filter: blur(12px);
+  transition: 0.3s ease;
+  transform: scale(1.02);
+}
+
+.container button {
+  background-color: rgba(255, 255, 255, 0.788);
+  color: #0e0d0d;
+  font-size: 16px;
+  padding: 10px 45px;
+  border: 2px solid rgba(224, 156, 20, 0.678);
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.glass-box {
+  background: rgba(224, 156, 20, 0.678);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+  color: #f5f5f5;
+}
+button:hover {
+  box-shadow: 0 0 15px rgba(224, 156, 20, 0.678);
+  background-color: rgba(224, 156, 20, 0.678);
+  transform: scale(1.02);
+  transition: 0.3s ease;
+}
+
+.container button.hidden {
+  background-color: transparent;
+  border-color: #c9691b;
+  border-width: 2px;
+}
+
+.container form {
+  background-color: #0f0f0f;
+  border: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  height: 100%;
+}
+
+.container input {
+  background-color: rgba(32, 32, 32, 0.781);
+  color: #ffffff;
+  border-style: solid;
+  border-width: 2px;
+  border: 1px solid rgba(214, 145, 15, 0.932);
+  margin: 8px 0;
+  padding: 10px 15px;
+  font-size: 13px;
+  border-radius: 8px;
+  width: 100%;
+  outline: none;
+}
+
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+
+.sign-in {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.container.active .sign-in {
+  transform: translateX(100%);
+}
+
+.sign-up {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.container.active .sign-up {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+  animation: move 0.6s;
+}
+
+@keyframes move {
+  0%,
+  49.99% {
+    opacity: 0;
+    z-index: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 1;
+    z-index: 5;
+  }
+}
+
+.social-icons {
+  margin: 20px 0;
+}
+
+.social-icons a {
+  border: 1px solid #ffffff;
+  background-color: #fff;
+  border-radius: 20%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 3px;
+  width: 40px;
+  height: 40px;
+}
+
+.toggle-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  border-radius: 150px 0 0 100px;
+  z-index: 1000;
+}
+
+.container.active .toggle-container {
+  transform: translateX(-100%);
+  border-radius: 0 150px 100px 0;
+}
+
+.toggle {
+  background-color: #512da8;
+  height: 100%;
+  background: linear-gradient(to right, #141414e0, #1a1919d5);
+  color: #af6f3aea;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+
+.container.active .toggle {
+  transform: translateX(50%);
+}
+
+.toggle-panel {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 30px;
+  text-align: center;
+  top: 0;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+  color: #fff;
+}
+
+.toggle-left {
+  transform: translateX(-200%);
+}
+
+.container.active .toggle-left {
+  transform: translateX(0);
+}
+
+.toggle-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+.container.active .toggle-right {
+  transform: translateX(200%);
+}
+
+.btn:hover {
+  background-color: #20201f;
+  color: rgb(214, 159, 9);
+  border: 1px solid #20201f;
+}
+
+.btn1:hover {
+  background-color: #20201f;
+  color: rgb(214, 159, 9);
+  border: 1px solid #20201f;
+}
+
+input::placeholder {
+  color: #f8f8f8;
+  font-size: medium;
+  font-family: "Vazirmatn", "Inter", sans-serif;
+}
+
+.hidden1:hover {
+  background-color: #20201f;
+  color: rgb(214, 159, 9);
+  border: 1px solid #20201f;
+}
+
+.hidden2:hover {
+  background-color: #181817;
+  color: rgb(214, 159, 9);
+  border: 1px solid #20201f;
+}
+
+form,
+#data-container {
+  background: #fff;
+  border: 1px solid #cccccc07;
+  padding: 25px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+#error {
+  color: red;
+}
+#success {
+  color: green;
+}
+@media (min-width: 769px) {
+  .form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .sign-in,
+  .sign-up {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    transition: transform 0.6s ease, opacity 0.4s ease;
+  }
+
+  .container.active .sign-in {
+    transform: translateX(100%);
+    opacity: 0;
+    z-index: 1;
+  }
+
+  .container.active .sign-up {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .mobile-toggle {
+    display: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 191, 77, 0.1);
+    padding-bottom: 20px;
+    min-height: auto;
+  }
+
+  .form-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sign-in,
+  .sign-up {
+    width: 100%;
+    position: relative;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .sign-in.active,
+  .sign-up.active {
+    display: flex;
+    opacity: 1;
+    animation: fadeIn 0.4s ease forwards;
+  }
+
+  .toggle-container,
+  .toggle,
+  .toggle-panel {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #0f0f0f;
+    border-bottom: 1px solid rgba(224, 156, 20, 0.25);
+    border-radius: 14px;
+    padding: 8px;
+    margin: 15px 10px;
+    gap: 10px;
+  }
+
+  .mobile-toggle button {
+    flex: 1;
+    padding: 10px 0;
+    background: transparent;
+    color: #f3c873;
+    border: 1px solid rgba(224, 156, 20, 0.4);
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    transition: all 0.25s ease;
+  }
+
+  .mobile-toggle button.active {
+    background: rgba(224, 156, 20, 0.8);
+    color: #fff;
+    border-color: rgba(224, 156, 20, 0.8);
+    transform: scale(1.05);
+  }
+
+  .mobile-toggle button:hover {
+    background: rgba(224, 156, 20, 0.4);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
+  }
+}
